@@ -3,13 +3,11 @@ project(Learning3DS)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Include devkitPro headers
 include_directories(/opt/devkitpro/libctru/include)
 include_directories(/opt/devkitpro/citro2d/include)
-
-# Library paths
 link_directories(/opt/devkitpro/libctru/lib)
 link_directories(/opt/devkitpro/citro2d/lib)
+target_link_libraries(${PROJECT_NAME}.3dsx ctru citro3d citro2d)
 
 # Source files
 file(GLOB SOURCES "src/*.cpp")
