@@ -1,5 +1,15 @@
+# 3ds-toolchain.cmake
 set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_C_COMPILER /opt/devkitpro/devkitARM/bin/arm-none-eabi-gcc)
-set(CMAKE_CXX_COMPILER /opt/devkitpro/devkitARM/bin/arm-none-eabi-g++)
+set(CMAKE_SYSTEM_PROCESSOR arm)
+
 set(DEVKITPRO /opt/devkitpro)
-set(DEVKITARM /opt/devkitpro/devkitARM)
+set(DEVKITARM ${DEVKITPRO}/devkitARM)
+
+set(CMAKE_C_COMPILER ${DEVKITARM}/bin/arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER ${DEVKITARM}/bin/arm-none-eabi-g++)
+set(CMAKE_ASM_COMPILER ${DEVKITARM}/bin/arm-none-eabi-as)
+
+set(CMAKE_FIND_ROOT_PATH ${DEVKITPRO})
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
