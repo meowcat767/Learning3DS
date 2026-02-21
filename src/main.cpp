@@ -16,7 +16,8 @@ int main() {
     C2D_Image img = C2D_SpriteSheetGetImage(sheet, 0);
     C2D_Sprite spr;
     C2D_SpriteFromImage(&spr, img);
-    C2D_SpriteSetPos(&spr, 100.f, 100.f);
+    C2D_SpriteSetCenter(&spr, 0.5f, 0.5f);
+    C2D_SpriteSetPos(&spr, 200.f, 120.f);
 
     while (aptMainLoop()) {
         hidScanInput();
