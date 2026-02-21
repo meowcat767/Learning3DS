@@ -43,9 +43,12 @@ target_link_libraries(Learning3DS.elf
 
 # Post-build command to convert ELF to 3DSX
 set(3DSXTOOL "${DEVKITPRO}/tools/bin/3dsxtool")
+set(SMDHTOOL "${DEVKITPRO}/tools/bin/smdhtool")
 
+# Convert ELF to 3DSX and embed SMDH
 add_custom_command(TARGET Learning3DS.elf POST_BUILD
-        COMMAND ${3DSXTOOL} $<TARGET_FILE:Learning3DS.elf> ${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.3dsx
-        COMMENT "Converting ELF to 3DSX"
+        COMMAND ${SMDHTOOL} --create "Learning3DS" "Learning 3DS development" "meowcat767" "${DEVKITPRO}/libctru/default_icon.png" ${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.smdh
+        COMMAND ${3DSXTOOL} $<TARGET_FILE:Learning3DS.elf> ${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.3dsx --smdh=${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.smdh
+        COMMENT "Generating SMDH and converting ELF to 3DSX"
 )
 
