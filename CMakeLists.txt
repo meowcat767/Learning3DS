@@ -36,9 +36,10 @@ link_directories(
 )
 
 target_link_libraries(Learning3DS.elf
-        ${DEVKITPRO}/libctru/lib/libctru.a
         ${DEVKITPRO}/libctru/lib/libcitro2d.a
         ${DEVKITPRO}/libctru/lib/libcitro3d.a
+        ${DEVKITPRO}/libctru/lib/libctru.a
+        m
 )
 
 # Post-build command to convert ELF to 3DSX
