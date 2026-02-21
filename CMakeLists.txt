@@ -48,7 +48,7 @@ set(SMDHTOOL "${DEVKITPRO}/tools/bin/smdhtool")
 
 # Convert ELF to 3DSX and embed SMDH
 add_custom_command(TARGET Learning3DS.elf POST_BUILD
-        COMMAND ${SMDHTOOL} --create "Learning3DS" "Learning 3DS development" "meowcat767" "${DEVKITPRO}/libctru/default_icon.png" ${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.smdh
+        COMMAND ${SMDHTOOL} --create "massive cat" "this cat is massive" "meowcat767" "${DEVKITPRO}/libctru/default_icon.png" ${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.smdh
         COMMAND ${3DSXTOOL} $<TARGET_FILE:Learning3DS.elf> ${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.3dsx --smdh=${CMAKE_CURRENT_BINARY_DIR}/Learning3DS.smdh --romfs=${CMAKE_CURRENT_SOURCE_DIR}/romfs
         COMMENT "Generating SMDH and converting ELF to 3DSX"
 )
